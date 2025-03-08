@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Makse õnnestus{% endblock %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <h2 class="text-success">Makse õnnestus!</h2>
+    <p>Aitäh ostu eest. Teie tellimus on vastu võetud.</p>
+    <a href="{% url 'home' %}" class="btn btn-primary">Tagasi avalehele</a>
+</div>
+{% endblock %}

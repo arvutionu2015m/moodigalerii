@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Makse katkestatud{% endblock %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <h2 class="text-danger">Makse katkestatud</h2>
+    <p>Teie makse katkestati. Kui see oli viga, proovige uuesti.</p>
+    <a href="{% url 'tooted' %}" class="btn btn-warning">Tagasi toodete juurde</a>
+</div>
+{% endblock %}

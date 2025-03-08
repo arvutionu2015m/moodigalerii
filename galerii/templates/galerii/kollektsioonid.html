@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Kollektsioonid{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center mb-4">Meie Kollektsioonid</h2>
+
+    <div class="row">
+        {% for kollektsioon in kollektsioonid %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ kollektsioon.nimi }}</h5>
+                        <p class="card-text">{{ kollektsioon.kirjeldus }}</p>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>Hetkel pole kollektsioone saadaval.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

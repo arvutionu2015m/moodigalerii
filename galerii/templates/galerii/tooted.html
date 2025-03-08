@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Tooted{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center mb-4">Meie Tooted</h2>
+
+    <div class="row">
+        {% for toode in tooted %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{{ toode.pilt.url }}" class="card-img-top" alt="{{ toode.nimi }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ toode.nimi }}</h5>
+                        <p class="card-text">{{ toode.kirjeldus }}</p>
+                        <p class="text-muted">{{ toode.hind }} €</p>
+                        {% if toode.pilt_360 %}
+                            <a href="{{ toode.pilt_360.url }}" class="btn btn-primary">Vaata 360°</a>
+                        {% endif %}
+                    </div>
+                    <a href="{% url 'checkout' toode.id %}" class="btn btn-success">Osta Stripe kaudu</a>
+                </div>
+            </div>
+        {% empty %}
+            <p>Hetkel pole tooteid saadaval.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
